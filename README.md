@@ -1,44 +1,75 @@
-# Spotlist Challenge
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+</p>
 
-Spotlist is a new indie music company that aims to provide better relationships with small artists.
+[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
+[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-Their product is _Spotlist_, a platform in which people can generate and share playlists for their favourite artists providing them with visibility.
+  <p align="center">You may check my portfolio in <a href="https://github.com/troindx" target="_blank">Github</a> as well as my webpage at <a href="https://www.hamrodev.com" target="_blank">Hamro Dev</a>.</p>
+    <p align="center">
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
+<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
+<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
+<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
+<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
+<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
+  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
+    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
+  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
+</p>
+  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
+  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Current Status
+## Description
 
-The CEO of _Spotlist_ hired you to develop the initial version of his product. Its worth mentioning that she does not have any technical background.
+This exercise has been developed using [Nest](https://github.com/nestjs/nest). It fulfills the endpoint described in /docs/swagger.yaml. Needless to say, in order for this to work, **Please make sure that you have Nodejs installed**
 
-However, she has a clear vision on how the product should behave, so she provided a list of functional requirements.
+## Installation
 
-### Requirements
-* Each user will have a **unique** id, and he will authenticate using a **non-empty name** and a **password**.
-* Each user will be able to save a list of songs. Each song will have an **artist** and **title**, and each list will be defined by a **unique** id and a name.
-* The system have to allow the following actions
-    * Create a new list with a given name (auto-generate the **unique** id)
-    * Get the users lists
-    * Get an individual list for the user
-    * Add songs to a given list (based on the generated id)
-    * All endpoints have to be secured with Basic Auth (using name & password) 
-* You should ensure that the password is strong enough
+```bash
+$ npm install
+```
 
-You can find the swagger documentation for the expected API on the [doc](./doc/swagger.yaml) folder.
-## What are we looking for?
+## Running the app
 
-* **A well-designed solution and architecture** Avoid duplication, extract re-usable code
-where makes sense. We want to see that you can create an easy-to-maintain codebase.
-* **Storage** We do not need a full fledged database rollout, its ok to save your data on memory for now. _However_ we are looking for an architecture that allows us to add a database as easy as possible. For a start, you can find a users database in json format on the _doc_ folder.
-* **Testing** Try to create tests covering the main functionalities of your code. Feel free to create both unit tests and functional tests.
-* **Documentation** The CEO has a non-tech background so try to explain your decisions, 
-as well as any other technical requirement (how to run the API, external dependencies, etc ...)
+**Before you run the app.** Make sure that you prepare your .env file. You can find a preset .env file with all the necessary strings in .env.dist file . Rename it to .env and change the mongo DB connection string accordingly. Make sure that your mongoDB has a _Users_ collection created as well as a _UserLists_ collection created before initializing.
 
----
 
-## How to submit your solution
+**This endpoint uses MONGODB to run** so remember to have a mongoDB server running for the app to work. You can use docker compose and run the following commands.
+```bash
+# modern versions of docker
+$ docker compose up db
 
-* Push your code to the `devel` branch - we encourage you to commit regularly to show your thinking process was.
-* **Create a new Pull Request** to `main` branch & **merge it**.
+# older versions of docker
+$ docker-compose up db
+```
+This will create a mongoDB container that the app can connect to. If you cannot run your own mongoDB database, try Cloud Atlas from Mongodb <a href="https://www.mongodb.com/cloud/atlas>here</a>.
 
-Once merged you **won't be able to change or add** anything to your solution, so double-check that everything is as
-you expected!
+Once this is done. You can run the following commands:
 
-Remember that **there is no countdown**, so take your time and implement a solution that you are proud!
+```bash
+# development
+$ npm run start
+
+# watch mode
+$ npm run start:dev
+
+# production mode
+$ npm run start:prod
+```
+
+## Test
+You can run the following tests. Tests are found inside of the modules/<modulename>/test folder. e2e tests can be found in the /test file.
+
+```bash
+# unit tests
+$ npm run test
+
+# e2e tests
+$ npm run test:e2e
+
+# test coverage
+$ npm run test:cov
+```

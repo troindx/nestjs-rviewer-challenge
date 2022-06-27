@@ -1,0 +1,33 @@
+version: "3.8"
+networks:
+  app-tier:
+    driver: bridge
+services:
+  spotlist-back:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    networks:
+      - app-tier 
+    expose:
+      - 3000
+
+  db:
+    image: 'mongo'
+    container_name: 'mongo-spotlist'
+    environment:
+      - MONGO_INITDB_DATABASE=spotlist
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=1234
+    ports:
+      - "27017-27019:27017-27019"
+    expose:
+      - 27017-27019
+    networks:
+      - app-tier 
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      # - ./mongo-volume:/data/db
+

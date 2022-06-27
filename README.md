@@ -24,7 +24,7 @@
 
 ## Description
 
-This exercise has been developed using [Nest](https://github.com/nestjs/nest). It fulfills the endpoint described in /docs/swagger.yaml. Needless to say, in order for this to work, **Please make sure that you have Nodejs installed**
+This exercise has been developed using [Nest](https://github.com/nestjs/nest). It fulfills the endpoint described in /docs/swagger.yaml. Needless to say, in order for this to work, **make sure that you have Nodejs installed**.
 
 ## Installation
 
@@ -45,9 +45,7 @@ $ docker compose up db
 # older versions of docker
 $ docker-compose up db
 ```
-This will create a mongoDB container that the app can connect to. If you cannot run your own mongoDB database, try Cloud Atlas from Mongodb <a href="https://www.mongodb.com/cloud/atlas">here</a> and use your own connection string to store data.
-
-**Note** I am aware that 
+This will create a mongoDB container that the app can connect to. If you cannot run your own mongoDB database, try Cloud Atlas from Mongodb <a href="https://www.mongodb.com/cloud/atlas">here</a> and use your own connection string to store data. Make sure you set the right connection string into the .env file.
 
 Once you have your mongo db system ready, you can run the following commands:
 
@@ -63,7 +61,7 @@ $ npm run start:prod
 ```
 
 ## Test
-You can run the following tests. Tests are found inside of the modules/<modulename>/test folder. e2e tests can be found in the /test file.
+You can run the following tests. Tests are found inside of the modules/<modulename>/test folder. e2e tests can be found in the /test folder.
 
 ```bash
 # unit tests
@@ -75,3 +73,5 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+**Note** You can launch the whole environment in production using docker compose up.

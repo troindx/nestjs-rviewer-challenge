@@ -45,9 +45,11 @@ $ docker compose up db
 # older versions of docker
 $ docker-compose up db
 ```
-This will create a mongoDB container that the app can connect to. If you cannot run your own mongoDB database, try Cloud Atlas from Mongodb <a href="https://www.mongodb.com/cloud/atlas>here</a>.
+This will create a mongoDB container that the app can connect to. If you cannot run your own mongoDB database, try Cloud Atlas from Mongodb <a href="https://www.mongodb.com/cloud/atlas">here</a> and use your own connection string to store data.
 
-Once this is done. You can run the following commands:
+**Note** I am aware that 
+
+Once you have your mongo db system ready, you can run the following commands:
 
 ```bash
 # development
